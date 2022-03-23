@@ -70,4 +70,28 @@ public class IntListTest {
       * to add a main method. See ArithmeticTest.java for an
       * example. */
 
+
+    /**
+     * Returns the reverse of the given IntList.
+     * This method is destructive. If given null
+     * as an input, returns null.
+     */
+
+    @Test
+    public static IntList reverse(IntList A){
+        IntList temp1=null;
+        IntList x=A;
+        while (x!=null){
+            IntList temp2=x.rest;
+            x.rest=temp1;
+            temp1=x;
+            x=temp2;
+        }
+        return temp1;
+    }
+
+    public static void main(String... args) {
+        jh61b.junit.TestRunner.runTests("all", ArithmeticTest.class);
+    }
+
 }
