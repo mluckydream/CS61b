@@ -111,12 +111,16 @@ public class IntList {
         return newList;
     }
 
-    public static IntList reverse(IntList A){
-        return null;
+
+    public static IntList reverse(IntList A) {
+        if (A == null || A.rest == null) {
+            return A;
+        }
+        IntList reversed = reverse(A.rest);
+        A.rest.rest = A;
+        A.rest = null;
+        return reversed;
     }
-
-
-
 
 
 

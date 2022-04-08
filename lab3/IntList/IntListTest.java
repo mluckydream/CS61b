@@ -71,24 +71,21 @@ public class IntListTest {
       * example. */
 
 
+    @Test(timeout = 1000)
+    public void testReverse() {
+        IntList A = IntList.of(1, 2, 3);
+        IntList B = IntList.reverse(A);
+        assertEquals(IntList.of(3, 2, 1), B);
+        assertNotEquals(IntList.of(1, 2, 3), A);
+        IntList C = IntList.reverse(null);
+        assertEquals(null, C);
+    }
+
     /**
      * Returns the reverse of the given IntList.
      * This method is destructive. If given null
      * as an input, returns null.
      */
-
-    @Test
-    public static IntList reverse(IntList A){
-        IntList temp1=null;
-        IntList x=A;
-        while (x!=null){
-            IntList temp2=x.rest;
-            x.rest=temp1;
-            temp1=x;
-            x=temp2;
-        }
-        return temp1;
-    }
 
     public static void main(String... args) {
         jh61b.junit.TestRunner.runTests("all", ArithmeticTest.class);
